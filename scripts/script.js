@@ -1,11 +1,11 @@
 window.onload = function createPixelArt() {
-  function createH1() {
-    const h1 = document.createElement('h1');
-    const text = document.createTextNode('Paleta de Cores');
-    h1.id = 'title';
-    h1.appendChild(text);
-    document.body.appendChild(h1);
+  function createH1(tag, id, text) {
+    const myTag = document.createElement(`${tag}`);
+    const myText = document.createTextNode(text);
+    myTag.id = id;
+    myTag.appendChild(myText);
+    document.body.appendChild(myTag);
   }
 
-  createH1();
+  createH1('h1', 'title', 'Paleta de Cores');
 };
