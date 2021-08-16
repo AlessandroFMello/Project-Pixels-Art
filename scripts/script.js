@@ -1,11 +1,38 @@
-window.onload = function createPixelArt() {
-  function createH1(tag, id, text) {
-    const myTag = document.createElement(`${tag}`);
-    const myText = document.createTextNode(text);
-    myTag.id = id;
-    myTag.appendChild(myText);
-    document.body.appendChild(myTag);
-  }
+function createElementByTagName(tagName, id) {
+  const tag = document.createElement(`${tagName}`);
+  tag.id = id;
+  document.body.appendChild(tag);
+  return tag;
+}
 
-  createH1('h1', 'title', 'Paleta de Cores');
-};
+function createTitle() {
+  const titleDiv = createElementByTagName('div', 'title-div');
+  const title = createElementByTagName('h1', 'title');
+  title.innerText = 'Paleta de Cores';
+  document.body.appendChild(titleDiv);
+  titleDiv.appendChild(title);
+}
+
+function createColorPallete() {
+  const colorPallete = createElementByTagName('div', 'color-pallete');
+  document.body.appendChild(colorPallete);
+}
+
+function createColor(myColor) {
+  const color = createElementByTagName('div', 'color');
+  const colorPallete = document.getElementById('color-pallete');
+  colorPallete.appendChild(color);
+  color.id = `${myColor}`;
+  color.className = 'color';
+}
+
+function createPixelArt() {
+  createTitle();
+  createColorPallete();
+  createColor('black');
+  createColor('red');
+  createColor('blue');
+  createColor('green');
+}
+
+window.onload = createPixelArt();
