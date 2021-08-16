@@ -13,26 +13,46 @@ function createTitle() {
   titleDiv.appendChild(title);
 }
 
-function createColorPallete() {
-  const colorPallete = createElementByTagName('div', 'color-pallete');
-  document.body.appendChild(colorPallete);
+function createColorPalette() {
+  const colorPalette = createElementByTagName('div', 'color-palette');
+  document.body.appendChild(colorPalette);
 }
 
 function createColor(myColor) {
   const color = createElementByTagName('div', 'color');
-  const colorPallete = document.getElementById('color-pallete');
-  colorPallete.appendChild(color);
+  const colorPalette = document.getElementById('color-palette');
+  colorPalette.appendChild(color);
   color.id = `${myColor}`;
   color.className = 'color';
 }
 
+function addBoard() {
+  const pixelsDv = createElementByTagName('div', 'pixel-board');
+  document.body.appendChild(pixelsDv);
+}
+
+function addPixels() {
+  let count = 1;
+  for (let i = 0; i < 5; i += 1) {
+    for (let j = 0; j < 5; j += 1) {
+      const pixel = createElementByTagName('div', `pixel${count}`);
+      const pixels = document.getElementById('pixel-board');
+      pixels.appendChild(pixel);
+      pixel.className = 'pixel';
+      count += 1;
+    }
+  }
+}
+
 function createPixelArt() {
   createTitle();
-  createColorPallete();
+  createColorPalette();
   createColor('black');
   createColor('red');
   createColor('blue');
   createColor('green');
+  addBoard();
+  addPixels();
 }
 
 window.onload = createPixelArt();

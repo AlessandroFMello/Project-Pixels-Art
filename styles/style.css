@@ -1,7 +1,6 @@
 * {
   background-color: white;
 }
-
 .color {
   border-width: 1px;
   border-style: solid;
@@ -9,6 +8,23 @@
   width: 100px;
   height: 100px;
   float: left;
+}
+
+.pixel {
+  border-width: 1px;
+  border-style: solid;
+  border-color: black;
+  width: 40px;
+  height: 40px;
+  float: left;
+}
+
+#pixel-board {
+  width: 210px;
+  height: 210px;
+  padding-top: 10%;
+  padding-left: 365px;
+  padding-right: 3%;
 }
 
 #black {
@@ -19,7 +35,7 @@
   background-color: blue;
 }
 
-#color-pallete {
+#color-palette {
   width: 100%;
   height: 102px;
   padding-left: 29%;
