@@ -1,6 +1,7 @@
 * {
   background-color: white;
 }
+
 .color {
   border-width: 1px;
   border-style: solid;
@@ -19,10 +20,16 @@
   float: left;
 }
 
+.selected {
+  margin: 10px;
+  width: 80px;
+  height: 80px;
+}
+
 #pixel-board {
   width: 210px;
   height: 210px;
-  padding-top: 10%;
+  padding-top: 5%;
   padding-left: 365px;
   padding-right: 3%;
 }

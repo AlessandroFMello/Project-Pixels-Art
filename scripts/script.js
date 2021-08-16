@@ -44,6 +44,20 @@ function addPixels() {
   }
 }
 
+function selectColor() {
+  const colors = document.querySelectorAll('.color');
+  const black = document.getElementById('black');
+  colors.forEach((color) => {
+    black.className = 'color selected';
+    color.addEventListener('click', () => {
+      colors.forEach((clickedColor) => {
+        clickedColor.className = 'color';
+      });
+      color.className = 'color selected';
+    });
+  });
+}
+
 function createPixelArt() {
   createTitle();
   createColorPalette();
@@ -53,6 +67,7 @@ function createPixelArt() {
   createColor('green');
   addBoard();
   addPixels();
+  selectColor();
 }
 
 window.onload = createPixelArt();
