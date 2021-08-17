@@ -8,6 +8,7 @@
   border-color: black;
   width: 100px;
   height: 100px;
+  display: inline-block;
   float: left;
 }
 
@@ -43,12 +44,10 @@
 }
 
 #color-palette {
-  width: 100%;
+  width: 408px;
   height: 102px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #green {
@@ -61,7 +60,6 @@
 
 #title {
   text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
 }
