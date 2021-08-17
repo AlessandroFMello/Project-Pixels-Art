@@ -9,13 +9,13 @@
   width: 100px;
   height: 100px;
   display: inline-block;
-  float: left;
 }
 
 .pixel {
   border-width: 1px;
   border-style: solid;
   border-color: black;
+  background-color: white;
   width: 40px;
   height: 40px;
   float: left;
@@ -25,6 +25,13 @@
   margin: 10px;
   width: 80px;
   height: 80px;
+}
+
+#button-board {
+  padding-top: 5%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #pixel-board {

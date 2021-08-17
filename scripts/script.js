@@ -1,7 +1,6 @@
 function createElementByTagName(tagName, id) {
   const tag = document.createElement(`${tagName}`);
   tag.id = id;
-  document.body.appendChild(tag);
   return tag;
 }
 
@@ -40,6 +39,7 @@ function addEventListenerAll(element, events, fn) {
 function addPaintPixelProperty(pixel) {
   addEventListenerAll(pixel, 'click drag', () => {
     const selectedColor = document.querySelector('.selected');
+    pixel.className = 'pixel colored';
     pixel.style.backgroundColor = selectedColor.id;
   });
 }
@@ -72,6 +72,25 @@ function selectColor() {
   });
 }
 
+function addClearBoardProperty(button) {
+  button.addEventListener('click', () => {
+    const pixels = document.getElementsByClassName('colored');
+    for (let i = 0; i < pixels.length; i += 1) {
+      pixels[i].style.backgroundColor = 'white';
+    }
+  });
+}
+
+function addClearBoardButton() {
+  const button = createElementByTagName('button', 'clear-board');
+  const btnBoard = createElementByTagName('div', 'button-board');
+  // addClearBoardProperty(button);
+  addClearBoardProperty(button);
+  button.innerText = 'Limpar';
+  document.body.appendChild(btnBoard);
+  btnBoard.appendChild(button);
+}
+
 function createPixelArt() {
   createTitle();
   createColorPalette();
@@ -79,6 +98,7 @@ function createPixelArt() {
   createColor('red');
   createColor('blue');
   createColor('green');
+  addClearBoardButton();
   addBoard();
   addPixels();
   selectColor();
