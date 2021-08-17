@@ -31,12 +31,26 @@ function addBoard() {
   document.body.appendChild(pixelsDv);
 }
 
+function addEventListenerAll(element, events, fn) {
+  events.split(' ').forEach((ev) => {
+    element.addEventListener(ev, fn, false);
+  });
+}
+
+function addPaintPixelProperty(pixel) {
+  addEventListenerAll(pixel, 'click drag', () => {
+    const selectedColor = document.querySelector('.selected');
+    pixel.style.backgroundColor = selectedColor.id;
+  });
+}
+
 function addPixels() {
   let count = 1;
   for (let i = 0; i < 5; i += 1) {
     for (let j = 0; j < 5; j += 1) {
       const pixel = createElementByTagName('div', `pixel${count}`);
       const pixels = document.getElementById('pixel-board');
+      addPaintPixelProperty(pixel);
       pixels.appendChild(pixel);
       pixel.className = 'pixel';
       count += 1;
