@@ -27,27 +27,28 @@
   height: 80px;
 }
 
-#button-board {
-  padding-top: 5%;
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-#pixel-board {
-  width: 210px;
-  height: 210px;
-  padding-top: 5%;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 #black {
   background-color: black;
 }
 
 #blue {
   background-color: blue;
+}
+
+#board-size {
+  display: flex;
+}
+
+#generate-board {
+  margin-top: 10px;
+  display: flex;
+}
+
+#button-board {
+  padding-top: 40px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #color-palette {
@@ -61,8 +62,23 @@
   background-color: green;
 }
 
+
+#pixel-board {
+  padding-top: 40px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 #red {
   background-color: red;
+}
+
+#size-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
 }
 
 #title {

@@ -25,9 +25,9 @@ function createColor(myColor) {
   color.className = 'color';
 }
 
-function addBoard() {
-  const pixelsDv = createElementByTagName('div', 'pixel-board');
-  document.body.appendChild(pixelsDv);
+function addBoard(id) {
+  const pixelsDIv = createElementByTagName('div', id);
+  document.body.appendChild(pixelsDIv);
 }
 
 function addEventListenerAll(element, events, fn) {
@@ -44,18 +44,45 @@ function addPaintPixelProperty(pixel) {
   });
 }
 
-function addPixels() {
+function addPixels(size = 5) {
   let count = 1;
-  for (let i = 0; i < 5; i += 1) {
-    for (let j = 0; j < 5; j += 1) {
+  for (let i = 0; i < size; i += 1) {
+    for (let j = 0; j < size; j += 1) {
       const pixel = createElementByTagName('div', `pixel${count}`);
       const pixels = document.getElementById('pixel-board');
+      pixels.style.height = `${size * 42}px`;
+      pixels.style.width = `${size * 42}px`;
       addPaintPixelProperty(pixel);
       pixels.appendChild(pixel);
       pixel.className = 'pixel';
       count += 1;
     }
   }
+}
+
+function eraseBoard() {
+  const pixels = document.getElementById('pixel-board');
+  pixels.innerText = '';
+}
+
+function generateBoardBySize() {
+  const div = createElementByTagName('div', 'size-div');
+  const input = createElementByTagName('input', 'board-size');
+  const button = createElementByTagName('button', 'generate-board');
+  document.body.appendChild(div);
+  button.innerText = 'Gerar Quadro';
+  div.appendChild(input);
+  div.appendChild(button);
+
+  button.addEventListener('click', () => {
+    if (input.value > 5 && input.value <= 50) {
+      eraseBoard();
+      addPixels(input.value);
+      input.value = '';
+    } else {
+      input.value = '';
+    }
+  });
 }
 
 function selectColor() {
@@ -99,9 +126,10 @@ function createPixelArt() {
   createColor('blue');
   createColor('green');
   addClearBoardButton();
-  addBoard();
+  addBoard('pixel-board');
   addPixels();
   selectColor();
+  generateBoardBySize();
 }
 
 window.onload = createPixelArt();
