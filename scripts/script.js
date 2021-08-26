@@ -65,24 +65,33 @@ function eraseBoard() {
   pixels.innerText = '';
 }
 
-function generateBoardBySize() {
-  const div = createElementByTagName('div', 'size-div');
-  const input = createElementByTagName('input', 'board-size');
-  const button = createElementByTagName('button', 'generate-board');
-  document.body.appendChild(div);
-  button.innerText = 'Gerar Quadro';
-  div.appendChild(input);
-  div.appendChild(button);
+function addResizeProperty() {
+  const input = document.getElementById('board-size');
+  const button = document.getElementById('generate-board');
 
   button.addEventListener('click', () => {
-    if (input.value > 5 && input.value <= 50) {
+    if (input.value >= 5 && input.value <= 50) {
       eraseBoard();
       addPixels(input.value);
       input.value = '';
     } else {
       input.value = '';
     }
+    if (input.value === '') {
+      window.alert('Board inválido!');
+    }
   });
+}
+
+function generateBoardBySize() {
+  const div = createElementByTagName('div', 'size-div');
+  const input = createElementByTagName('input', 'board-size');
+  const button = createElementByTagName('button', 'generate-board');
+  document.body.appendChild(div);
+  button.innerText = 'VQV';
+  div.appendChild(input);
+  div.appendChild(button);
+  addResizeProperty();
 }
 
 function selectColor() {
@@ -125,11 +134,11 @@ function createPixelArt() {
   createColor('red');
   createColor('blue');
   createColor('green');
+  generateBoardBySize();
   addClearBoardButton();
   addBoard('pixel-board');
   addPixels();
   selectColor();
-  generateBoardBySize();
 }
 
 window.onload = createPixelArt();
