@@ -29,11 +29,28 @@
 }
 
 #black {
+  display: flex;
+  order: 0;
   background-color: black;
+
+}
+
+#red {
+  display: flex;
+  order: 1;
+  background-color: red;
 }
 
 #blue {
+  display: flex;
+  order: 2;
   background-color: blue;
+}
+
+#green {
+  display: flex;
+  order: 3;
+  background-color: green;
 }
 
 #board-size {
@@ -55,11 +72,10 @@
 #color-palette {
   display: flex;
   flex-direction: row;
-  justify-content: center;
-}
-
-#green {
-  background-color: green;
+  justify-content: space-between;
+  align-items: center;
+  width: 50%;
+  margin: auto;
 }
 
 
@@ -67,10 +83,6 @@
   padding-top: 40px;
   margin-left: auto;
   margin-right: auto;
-}
-
-#red {
-  background-color: red;
 }
 
 #size-div {
