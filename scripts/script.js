@@ -20,9 +20,9 @@ function createColorPalette() {
 function createColor(myColor) {
   const color = createElementByTagName('div', 'color');
   const colorPalette = document.getElementById('color-palette');
-  colorPalette.appendChild(color);
-  color.id = `${myColor}`;
   color.className = 'color';
+  color.id = `${myColor}`;
+  colorPalette.appendChild(color);
 }
 
 function addBoard(id) {
@@ -76,6 +76,9 @@ function addResizeProperty() {
       eraseBoard();
       addPixels(input.value);
       input.value = '';
+    } else if (input.value > 50) {
+      eraseBoard();
+      addPixels(50);
     } else {
       input.value = '';
     }
