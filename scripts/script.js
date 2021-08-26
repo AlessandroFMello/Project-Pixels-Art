@@ -70,15 +70,14 @@ function addResizeProperty() {
   const button = document.getElementById('generate-board');
 
   button.addEventListener('click', () => {
-    if (input.value >= 5 && input.value <= 50) {
+    if (input.value === '') {
+      window.alert('Board inválido!');
+    } else if (input.value >= 5 && input.value <= 50) {
       eraseBoard();
       addPixels(input.value);
       input.value = '';
     } else {
       input.value = '';
-    }
-    if (input.value === '') {
-      window.alert('Board inválido!');
     }
   });
 }
@@ -86,6 +85,8 @@ function addResizeProperty() {
 function generateBoardBySize() {
   const div = createElementByTagName('div', 'size-div');
   const input = createElementByTagName('input', 'board-size');
+  input.type = 'number';
+  input.min = 1;
   const button = createElementByTagName('button', 'generate-board');
   document.body.appendChild(div);
   button.innerText = 'VQV';
